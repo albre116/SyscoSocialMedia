@@ -1,0 +1,17 @@
+version: '2'
+services:
+  jupyter:
+    restart: always
+    build: ./jupyter_notebook
+    environment:
+      TWITTER_CONSUMER_KEY: ${TWITTER_CONSUMER_KEY}
+      TWITTER_CONSUMER_SECRET: ${TWITTER_CONSUMER_SECRET}
+      TWITTER_ACCESS_TOKEN: ${TWITTER_ACCESS_TOKEN}
+      TWITTER_ACCESS_SECRET: ${TWITTER_ACCESS_SECRET}
+    ports:
+      - "8888:8888"
+      - "8777:8777"
+      - "8989:8989"
+    volumes:
+      - ./:/src/jupyter
+    command: bash -c 'jupyter notebook --NotebookApp.iopub_data_rate_limit=1.0e10 --port=8888 --ip=0.0.0.0 --NotebookApp.password="sha1:f217aa434731:b01a46c5ffccfc413ccffc33c802882737ac2ccd" --allow-root "jupyter" & jupyter kernelgateway --KernelGatewayApp.ip=0.0.0.0 --KernelGatewayApp.port=8777 --JupyterWebsocketPersonality.list_kernels=True & jupyter lab --port=8989 --ip=0.0.0.0 --allow-root "jupyter" --NotebookApp.password="sha1:f217aa434731:b01a46c5ffccfc413ccffc33c802882737ac2ccd"'
