@@ -16,5 +16,5 @@ if __name__ == '__main__':
             tweet = json.loads(line)
             hashtags_in_tweet = get_hashtags(tweet)
             hashtags.update(hashtags_in_tweet)
-        for tag, count in hashtags.most_common(20):
+        for tag, count in hashtags.most_common(40):
             print("{}: {}".format(tag, count))

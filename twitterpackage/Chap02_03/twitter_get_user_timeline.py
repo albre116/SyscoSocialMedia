@@ -19,4 +19,4 @@ if __name__ == '__main__':
     with open(fname, 'w') as f:
         for page in Cursor(client.user_timeline, screen_name=user, count=200).pages(16):
             for status in page:
-                f.write(json.dumps(status._json)+"\n")
+                f.write(json.dumps(status._json) +"\n")
