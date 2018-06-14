@@ -21,4 +21,4 @@ pyproj
 descartes
 jupyter
 jupyterlab
-community
+python-louvain
