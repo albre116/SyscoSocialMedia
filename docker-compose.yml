@@ -12,4 +12,4 @@ services:
       - "8990:8888"
     volumes:
       - ./:/usr/src/app
-    command: /usr/local/bin/jupyter notebook --port=8888 --ip=0.0.0.0 --NotebookApp.password="sha1:f217aa434731:b01a46c5ffccfc413ccffc33c802882737ac2ccd" --allow-root 
+    command: /usr/local/bin/jupyter notebook --port=8888 --ip=0.0.0.0 --NotebookApp.password="sha1:f217aa434731:b01a46c5ffccfc413ccffc33c802882737ac2ccd" --allow-root --NotebookApp.iopub_data_rate_limit=1.0e10

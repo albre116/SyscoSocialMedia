@@ -21,3 +21,4 @@ pyproj
 descartes
 jupyter
 jupyterlab
+community
