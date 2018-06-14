@@ -50,3 +50,5 @@ Werkzeug
 wikipedia
 wordcloud
 yelp
+requests
+visJS2jupyter
