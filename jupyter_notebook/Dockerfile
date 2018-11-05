@@ -14,4 +14,5 @@ COPY requirements.txt .
 COPY requirements2.txt .
 RUN pip install -r requirements.txt
 RUN pip install -r requirements2.txt
+RUN pip install git+git://github.com/albre116/visJS2jupyter
 CMD /usr/local/bin/jupyter notebook --port=8888 --ip=0.0.0.0 --NotebookApp.password="sha1:f217aa434731:b01a46c5ffccfc413ccffc33c802882737ac2ccd" --allow-root

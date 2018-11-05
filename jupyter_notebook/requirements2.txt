@@ -51,4 +51,4 @@ wikipedia
 wordcloud
 yelp
 requests
-visJS2jupyter
+#visJS2jupyter
