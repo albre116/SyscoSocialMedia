@@ -3,7 +3,7 @@ RUN mkdir -p /usr/src/app
 ENV PYTHONUNBUFFERED=1
 WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y freetds-dev libgdal-dev libevent-dev python-dev build-essential \
-libgdal-dev python-gdal
+libgdal-dev python-gdal cmake
 ENV CPLUS_INCLUDE_PATH /usr/include/gdal
 ENV C_INCLUDE_PATH /usr/include/gdal
 RUN pip install GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}')
@@ -12,6 +12,7 @@ RUN pip install shapely --no-binary shapely
 # Install twitter libraries
 COPY requirements.txt .
 COPY requirements2.txt .
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install -r requirements2.txt
 RUN pip install git+git://github.com/albre116/visJS2jupyter
